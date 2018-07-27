@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "no-floating-promises": true,
+    "no-return-await": false,
+    "await-promise": true,
+    "no-unused-expression": true,
+    "no-console": [true, "log", "debug"],
+    "object-literal-sort-keys": [true, "shorthand-first"],
+    "interface-name": [true, "never-prefix"],
+    "deprecation": false,
+    "no-unused-variable": false
+  }
+}

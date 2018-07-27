@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "target": "es6",
+    "removeComments": true,
+    "typeRoots": ["node_modules/@types", "typings"]
+  },
+  "compileOnSave": true,
+  "include": ["src"]
+}
