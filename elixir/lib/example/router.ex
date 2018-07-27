@@ -12,7 +12,7 @@ defmodule Example.Router do
 
   use Plug.ErrorHandler
 
-  defp messaging_api_url(body) do
+  defp post_messaging_request(body) do
     HTTPoison.post(
       "https://graph.facebook.com/v2.6/me/messages?access_token=#{
         System.get_env("MESSENGER_ACCESS_TOKEN")
@@ -31,7 +31,7 @@ defmodule Example.Router do
         "message" => %{"text" => "Elixir Echo: #{response}"}
       })
 
-    case messaging_api_url(body) do
+    case post_messaging_request(body) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         IO.puts(body)
 
