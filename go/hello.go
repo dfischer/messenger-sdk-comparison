@@ -56,7 +56,7 @@ func sendText(s id, t string) {
 			RecipientID: s.ID,
 		},
 		Message: messageText{
-			Text: t,
+			Text: fmt.Sprintf("Gopher Echo: %s", t),
 		},
 	}
 

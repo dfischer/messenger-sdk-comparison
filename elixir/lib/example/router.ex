@@ -24,9 +24,12 @@ defmodule Example.Router do
     )
   end
 
-  defp call_send_api(sender_psid, response) do
+  defp send_message_text(sender_psid, response) do
     body =
-      Jason.encode!(%{"recipient" => %{"id" => sender_psid}, "message" => %{"text" => response}})
+      Jason.encode!(%{
+        "recipient" => %{"id" => sender_psid},
+        "message" => %{"text" => "Elixir Echo: #{response}"}
+      })
 
     case messaging_api_url(body) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
@@ -38,9 +41,9 @@ defmodule Example.Router do
   end
 
   defp process_event(event) do
-    IO.inspect(event)
     sender_psid = event |> Map.get("sender") |> Map.get("id")
-    call_send_api(sender_psid, "hello")
+    message = event |> Map.get("message") |> Map.get("text")
+    send_message_text(sender_psid, message)
   end
 
   post "/webhook" do

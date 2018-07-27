@@ -37,7 +37,7 @@ app.post('/webhook', (req, res) => {
 
     if (webhook_event.message) {
       sendMessageText(webhook_event.sender.id, {
-        text: `echo: ${webhook_event.message.text}`,
+        text: `Node Echo: ${webhook_event.message.text}`,
       });
     }
   });

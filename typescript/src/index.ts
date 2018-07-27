@@ -54,7 +54,7 @@ app.post('/webhook', (req, res) => {
       if (webhook_event.message) {
         await sendText(
           webhook_event.sender.id,
-          `echo: ${webhook_event.message.text}`,
+          `TypeScript Echo: ${webhook_event.message.text}`,
         );
       }
       return res.status(200).send('EVENT_RECEIVED');
